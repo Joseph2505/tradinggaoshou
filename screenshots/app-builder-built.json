@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Trading糕手",
+      "hasCanvas": false,
+      "bodyTextLen": 1742,
+      "bodyTextHash": "9d9f2c92f7b642a7df74817e8d56dc72b45b77472618c10eed9700d700e0229c",
+      "bodyTextPrefix": "Trading糕手 会员 导师 终身席位 常见问题 黄金实盘 · XAUUSD · 中文 Trading糕手 三年专职，两年半稳",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Trading糕手",
+      "hasCanvas": false,
+      "bodyTextLen": 1725,
+      "bodyTextHash": "fad6a228f83f396e0b2377f8b5dfffeb7b63f7d1109c14afe297a8fa46776a9e",
+      "bodyTextPrefix": "Trading糕手 黄金实盘 · XAUUSD · 中文 Trading糕手 三年专职，两年半稳定盈利。现在，我每年只带二十个人",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

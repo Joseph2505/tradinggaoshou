@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Trading糕手",
+      "hasCanvas": false,
+      "bodyTextLen": 2405,
+      "bodyTextHash": "4544aa4063132c28d2a8b9105fdfc45fee45fb19ef782000fb8c4cee9fdf9a8b",
+      "bodyTextPrefix": "Trading糕手 会员 导师 终身席位 常见问题 加微信 黄金实盘 Trading糕手 三年专职交易，两年半稳定盈利。 目标：",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Trading糕手",
+      "hasCanvas": false,
+      "bodyTextLen": 2384,
+      "bodyTextHash": "d2ae922040b8d7433e8123f77f0a489c3878481b6c4043e627194d9db13a2fe3",
+      "bodyTextPrefix": "Trading糕手 黄金实盘 Trading糕手 三年专职交易，两年半稳定盈利。目标：让你成为能管住风险的盈利交易者。 查看套餐",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

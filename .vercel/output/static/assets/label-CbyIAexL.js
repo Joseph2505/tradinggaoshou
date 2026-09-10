@@ -1,0 +1,1 @@
+import{t as e}from"./react-SIfiwpqq.js";import{c as t}from"./preload-helper-CZnbJ4Ro.js";import{a as n}from"./button-BciUXAXX.js";e();var r=t();function i({className:e,...t}){return(0,r.jsx)(`label`,{className:n(`text-sm font-medium text-muted peer-disabled:cursor-not-allowed peer-disabled:opacity-50`,e),...t})}export{i as t};
