@@ -17,7 +17,7 @@ import {
   DISCORD_INVITE,
   DISCORD_HANDLE,
   BIANFU_ID,
-  SUPPORT_HANDLE,
+  SUPPORT_HANDLE, TMGM_REFERRAL_URL,
   LIFETIME_CHECKS,
   LIFETIME_PERKS,
   MEMBER_CHECKS,
@@ -52,6 +52,7 @@ function Home() {
       <Hero />
       <Stats />
       <Plans />
+      <PartnerOffer />
       <Mentor />
       <Risk />
       <Lifetime />
@@ -276,6 +277,13 @@ function Plans() {
     </section>
   );
 }
+
+function PartnerOffer() {
+  return (
+    <div className="mt-10 rounded-2xl border border-champagne/60 bg-surface p-6 shadow-border md:p-8" dangerouslySetInnerHTML={{__html: `<div><p class="text-xs tracking-[0.28em] text-champagne uppercase">TMGM 合作通道 · 活跃交易者</p><h3 class="mt-3 font-display text-2xl text-fg md:text-3xl">通过合作 Broker，月卡服务可免月费</h3><p class="mt-3 max-w-3xl text-sm leading-relaxed text-muted md:text-base">通过本页面的 TMGM 注册链接创建实盘账户并完成入金。每周累计交易达到 2 lot，即可按合作规则享有当月的月卡对应服务，月费不另收。学员无需额外联系，资格由导师根据实际交易记录核验。这项通道只适合本来就会主动交易的用户；终身席位不包含在内。</p><p class="mt-5 text-xs leading-relaxed text-subtle">资格需根据实际交易记录核验。TMGM 的开户、入金、交易条件和风险以 TMGM 官方条款为准；交易存在本金损失风险，本站不保证盈利。</p><p class="mt-5"><a class="inline-flex rounded-md bg-champagne px-5 py-3 text-sm font-medium text-bg" href="${TMGM_REFERRAL_URL}" target="_blank" rel="sponsored nofollow noreferrer">注册 TMGM →</a></p><p class="text-xs text-subtle">符合条件后无需联系，由导师核验</p></div>`}} />
+  );
+}
+
 
 function Mentor() {
   return (
