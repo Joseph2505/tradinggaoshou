@@ -27,9 +27,14 @@ function publicShareHost(): string {
 }
 
 const fetchSessionUser = createServerFn({ method: "GET" }).handler(async () => {
-  const { getSessionUser } = await import("@/lib/auth/verify.server");
-  const u = await getSessionUser();
-  return u ? { id: u.id, email: u.email } : null;
+  try {
+    const { getSessionUser } = await import("@/lib/auth/verify.server");
+    const u = await getSessionUser();
+    return u ? { id: u.id, email: u.email } : null;
+  } catch (err) {
+    console.error("[session] unavailable", err);
+    return null;
+  }
 });
 
 export const Route = createRootRoute({
