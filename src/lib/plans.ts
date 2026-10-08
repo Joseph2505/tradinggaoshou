@@ -21,9 +21,9 @@ export const PLANS: Plan[] = [
     id: "monthly",
     name: "月卡",
     lucky: "一路发",
-    luckyHint: "168",
+    luckyHint: "118",
     headline: "按月做黄金",
-    price: 168,
+    price: 118,
     period: "每月",
     months: 1,
     featured: false,
@@ -33,13 +33,13 @@ export const PLANS: Plan[] = [
     id: "halfyear",
     name: "半年卡",
     lucky: "顺又发",
-    luckyHint: "688",
+    luckyHint: "588",
     headline: "把纪律养成习惯",
-    price: 688,
+    price: 588,
     period: "六个月",
     months: 6,
     featured: false,
-    blurb: "相当于每月约 $115。把风险管理做成习惯。",
+    blurb: "相当于每月 $98。把风险管理做成习惯。",
   },
   {
     id: "yearly",
@@ -71,6 +71,8 @@ export const DISCORD_INVITE = "https://discord.gg/rRAVnpF3DU";
 export const DISCORD_HANDLE = "tradinggaoshou";
 export const BIANFU_ID = "154375295";
 export const SUPPORT_HANDLE = "keer0501";
+export const TMGM_REGISTER =
+  "https://portal.cnfxhero.com/register?node=MzI1Njk0&language=zh-Hans";
 
 export const WHOP_URLS: Record<PlanId, string> = {
   monthly:
@@ -125,6 +127,22 @@ export const LIFETIME_PERKS = [
 ];
 
 export const FAQS = [
+  {
+    q: "每周 1 手怎么算？",
+    a: "一个自然周合计 1 标准手，自己下的单。不是每天 1 手，也不是别人帮你成交。以 TMGM 报表为准。没到 1 手，当月不免费。",
+  },
+  {
+    q: "开了户就免费吗？",
+    a: "不是。要走专属链接、实盘入金，并且当周交易达标。达标后联系核对，才开通当月服务。",
+  },
+  {
+    q: "和付费月卡有什么差别？",
+    a: "服务相同。差别是资格：付费月卡付款即开；合伙席位要持续自己交易，每周合计 1 标准手。",
+  },
+  {
+    q: "终身席位能用这个免掉吗？",
+    a: "不能。终身席位是另一套：风险管理、手数计划和 15 小时一对一。这档只覆盖月卡服务。",
+  },
   {
     q: "如何加入？",
     a: "两种付法。有 Visa / Mastercard / PayPal：走 Whop，直接跳转到该套餐产品页，付完可在 Whop 进 Discord，不必再联系我们。只有银联、人民币、微信支付或支付宝：先换成 USDT，再联系我们转账——蝙蝠 ID 154375295，Discord Trading糕手 @tradinggaoshou，或 Discord 客服 @keer0501。付款后概不退款。",
@@ -190,7 +208,9 @@ export function monthlyEquivalent(plan: Plan): number | null {
 
 export function savingsVsMonthly(plan: Plan): number | null {
   if (!plan.months || plan.months <= 1) return null;
-  return 168 * plan.months - plan.price;
+  const monthly = PLANS.find((p) => p.id === "monthly");
+  if (!monthly || !plan.months || plan.months <= 1) return null;
+  return monthly.price * plan.months - plan.price;
 }
 
 export const STATUS_LABEL: Record<string, string> = {

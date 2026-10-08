@@ -23,13 +23,17 @@ const LIFE = [
 ];
 
 const PLANS = [
-  { id: "monthly", name: "月卡", lucky: "一路发", headline: "按月做黄金", price: 168, period: "每月", months: 1 },
-  { id: "halfyear", name: "半年卡", lucky: "顺又发", headline: "把纪律养成习惯", price: 688, period: "六个月", months: 6 },
+  { id: "monthly", name: "月卡", lucky: "一路发", headline: "按月做黄金", price: 118, period: "每月", months: 1 },
+  { id: "halfyear", name: "半年卡", lucky: "顺又发", headline: "把纪律养成习惯", price: 588, period: "六个月", months: 6 },
   { id: "yearly", name: "年卡", lucky: "发发发", headline: "完整走过一轮金市", price: 888, period: "一年", months: 12 },
   { id: "lifetime", name: "终身席位", lucky: "长长久久", headline: "专属计划 + 陪伴", price: 999, period: "一次", months: null },
 ];
 
 const FAQS = [
+  ["每周 1 手怎么算？", "一个自然周合计 1 标准手，自己下的单。不是每天 1 手，也不是别人帮你成交。以 TMGM 报表为准。没到 1 手，当月不免费。"],
+  ["开了户就免费吗？", "不是。要走专属链接、实盘入金，并且当周自己交易满 1 标准手。达标后联系核对，才开通当月服务。"],
+  ["和付费月卡有什么差别？", "服务相同。差别是资格：付费月卡付款即开；合伙席位要持续自己交易，每周合计 1 标准手。"],
+  ["终身席位能用这个免掉吗？", "不能。终身席位是另一套：风险管理、手数计划和 15 小时一对一。这档只覆盖月卡服务。"],
   ["如何加入？", "两种付法。有 Visa / Mastercard / PayPal：走 Whop，直接跳转到该套餐产品页，付完可在 Whop 进 Discord，不必再联系我们。只有银联、人民币、微信支付或支付宝：先换成 USDT，再联系我们转账——蝙蝠 ID 154375295，Discord Trading糕手 @tradinggaoshou，或 Discord 客服 @keer0501。付款后概不退款。"],
   ["我只有银联 / 微信 / 支付宝，怎么办？", "先在交易所或钱包把人民币换成 USDT，然后联系导师或客服，按套餐金额转过来。不要自己随便转。网站不显示钱包地址。"],
   ["社群在哪？", "没有微信群。主社群是 Discord。打不开 Discord、没有 VPN 的，用蝙蝠。VIP 有效期内，每笔交易都可以复盘。"],
@@ -46,8 +50,9 @@ const FAQS = [
 
 function cardHTML(p) {
   const monthly = p.months && p.months > 1 ? Math.round(p.price / p.months) : null;
-  const saved = p.months && p.months > 1 ? 168 * p.months - p.price : null;
-  const compare = p.months && p.months > 1 ? 168 * p.months : null;
+  const base = PLANS.find((x) => x.id === "monthly").price;
+  const saved = p.months && p.months > 1 ? base * p.months - p.price : null;
+  const compare = p.months && p.months > 1 ? base * p.months : null;
   const checks = p.id === "lifetime" ? LIFE : MEMBER;
   const note =
     p.id === "lifetime"
@@ -77,6 +82,10 @@ document.getElementById("plansCompact").innerHTML = PLANS.filter((p) => p.months
 document.getElementById("plansHighlight").innerHTML = PLANS.filter((p) => !p.months || p.months >= 12)
   .map(cardHTML)
   .join("");
+const partnerChecks = document.getElementById("partnerChecks");
+if (partnerChecks) {
+  partnerChecks.innerHTML = MEMBER.map((c) => `<li>${c}</li>`).join("");
+}
 document.getElementById("faqList").innerHTML = FAQS.map(
   ([q, a]) => `<details><summary>${q}<span>+</span></summary><p>${a}</p></details>`
 ).join("");

@@ -5,8 +5,9 @@ import { GoldMark } from "@/components/gold-mark";
 
 const LINKS = [
   { href: "/#plans", label: "会员" },
-  { href: "/#mentor", label: "导师" },
   { href: "/#lifetime", label: "终身席位" },
+  { href: "/#partner", label: "合伙席位" },
+  { href: "/#mentor", label: "导师" },
   { href: "/#faq", label: "常见问题" },
 ];
 

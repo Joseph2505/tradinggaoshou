@@ -22,11 +22,14 @@ export function SiteFooter() {
             <a href="/#plans" className="text-muted hover:text-fg">
               会员套餐
             </a>
-            <a href="/#mentor" className="text-muted hover:text-fg">
-              关于导师
-            </a>
             <a href="/#lifetime" className="text-muted hover:text-fg">
               终身席位
+            </a>
+            <a href="/#partner" className="text-muted hover:text-fg">
+              合伙席位
+            </a>
+            <a href="/#mentor" className="text-muted hover:text-fg">
+              关于导师
             </a>
             <a href="/#contact" className="text-muted hover:text-fg">
               付款加入
@@ -38,7 +41,7 @@ export function SiteFooter() {
             </span>
             <span className="text-muted">银联 / 微信 / 支付宝 → 换成 USDT</span>
             <span className="text-muted">Visa / Mastercard / PayPal → Whop</span>
-            <span className="text-muted">付款后概不退款</span>
+            <span className="text-muted">活跃交易者：TMGM 专属链接，每周自己做 1 手，当月月卡免费</span>
           </div>
         </div>
       </div>

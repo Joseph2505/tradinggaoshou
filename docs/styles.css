@@ -108,7 +108,31 @@ h2 { font-size: var(--title); margin-top: 0.75rem; }
 .mt { margin-top: 1rem; }
 .gold { color: var(--champagne); }
 
-.plans-grid { margin-top: 2.5rem; display: grid; gap: 1rem; }
+.partner {
+  margin-top: 2.5rem;
+  display: grid;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.partner-main { padding: 1.5rem; }
+.partner-side { background: var(--fg); color: #fffaf3; padding: 1.5rem; }
+.partner h3 { font-size: 2rem; margin-top: 1.25rem; }
+.pill {
+  display: inline-flex; border-radius: 999px; background: #efe6d6;
+  color: var(--champagne); font-size: 0.75rem; padding: 0.25rem 0.75rem;
+}
+.lot {
+  margin-top: 1.5rem; background: var(--fg); color: #fffaf3;
+  border-radius: 0.75rem; padding: 1rem 1.25rem;
+}
+.lot-num { font-family: var(--font-display); font-size: 2.5rem; line-height: 1; margin-top: 0.25rem; }
+.lot p:last-child { margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.85; }
+.steps-num { margin-top: 1.5rem; display: grid; gap: 0.75rem; padding-left: 1.25rem; font-size: 0.9rem; }
+.checks.light li::before { color: #b08950; }
+@media (min-width: 768px) { .partner-main, .partner-side { padding: 2.5rem; } }
+@media (min-width: 1024px) { .partner { grid-template-columns: 1.15fr 0.85fr; } }
 .plans-hi { margin-top: 1.5rem; display: grid; gap: 1.5rem; }
 @media (min-width: 640px) { .plans-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1024px) { .plans-hi { grid-template-columns: 1fr 1fr; } }

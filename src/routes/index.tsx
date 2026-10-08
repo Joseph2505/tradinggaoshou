@@ -17,11 +17,12 @@ import {
   DISCORD_INVITE,
   DISCORD_HANDLE,
   BIANFU_ID,
-  SUPPORT_HANDLE, TMGM_REFERRAL_URL,
+  SUPPORT_HANDLE,
   LIFETIME_CHECKS,
   LIFETIME_PERKS,
   MEMBER_CHECKS,
   PLANS,
+  TMGM_REGISTER,
   WHOP_URLS,
   isPlanId,
   monthlyEquivalent,
@@ -52,7 +53,7 @@ function Home() {
       <Hero />
       <Stats />
       <Plans />
-      <PartnerOffer />
+      <Partner />
       <Mentor />
       <Risk />
       <Lifetime />
@@ -166,8 +167,8 @@ function PlanCard({ plan }: { plan: Plan }) {
   const monthly = monthlyEquivalent(plan);
   const saved = savingsVsMonthly(plan);
   const checks = plan.id === "lifetime" ? LIFETIME_CHECKS : MEMBER_CHECKS;
-  const compare =
-    plan.months && plan.months > 1 ? 168 * plan.months : null;
+  const list = PLANS.find((p) => p.id === "monthly")?.price ?? plan.price;
+  const compare = plan.months && plan.months > 1 ? list * plan.months : null;
 
   return (
     <article
@@ -243,6 +244,104 @@ function PlanCard({ plan }: { plan: Plan }) {
   );
 }
 
+function Partner() {
+  const steps = [
+    "用下面的专属链接注册 TMGM，并开立实盘账户。",
+    "完成入金。不是这个链接开的户，不算合伙席位。",
+    "自己交易，每周合计 1 标准手。按经纪商报表核对，不是口头说。",
+    "联系我们核对后，开通当月 VIP：信号、每日分析、帮你看单。与月卡相同。",
+  ];
+  return (
+    <section id="partner" className="scroll-mt-20 px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-center text-xs tracking-[0.28em] text-champagne uppercase">
+          合伙席位 · 仅活跃交易者
+        </p>
+        <h2 className="mt-3 text-center font-display text-title text-fg">
+          每周自己做 1 手，月卡可以免费。
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-muted">
+          用专属链接在 TMGM 开实盘、入金，并且自己每周合计交易 1 标准手。达标后开通当月
+          VIP，服务与月卡相同。终身席位不在此列。
+        </p>
+
+        <div className="mt-10 grid overflow-hidden rounded-2xl bg-surface shadow-border lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="p-6 md:p-10">
+            <p className="inline-flex rounded-full bg-surface-2 px-3 py-1 text-xs text-champagne">
+              TMGM 合伙 · 活跃发
+            </p>
+            <h3 className="mt-5 font-display text-4xl text-fg">合伙席位 · 活跃发</h3>
+            <p className="mt-3 max-w-md text-muted">
+              给自己也在做单的人。不是跟单凑数，不是只开户不交易。
+            </p>
+            <div className="mt-6 rounded-xl bg-fg px-5 py-4 text-champagne-fg">
+              <p className="text-xs tracking-[0.22em] text-champagne-soft uppercase">
+                免费条件，看这里
+              </p>
+              <p className="mt-1 font-display text-4xl leading-none">每周 1 手</p>
+              <p className="mt-2 text-sm text-champagne-fg/80">
+                一个自然周，自己的单，合计 1 标准手。不是每天 1 手。没到 1 手，当月不免费。
+              </p>
+            </div>
+            <div className="mt-6 flex items-end gap-3">
+              <p className="text-sm text-subtle line-through tabular-nums">$118</p>
+              <p className="font-display text-6xl leading-none text-fg tabular-nums">$0</p>
+            </div>
+            <p className="mt-2 text-sm text-subtle">每月 · 条件达标后开通</p>
+            <p className="mt-1 text-sm text-champagne">
+              原月卡价 $118。走合伙链接并每周合计 1 手，当月服务免费。
+            </p>
+            <ol className="mt-8 space-y-3">
+              {steps.map((line, i) => (
+                <li key={line} className="flex gap-3 text-sm text-fg">
+                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-fg text-xs text-champagne-fg">
+                    {i + 1}
+                  </span>
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg">
+                <a href={TMGM_REGISTER} target="_blank" rel="noreferrer">
+                  用专属链接开 TMGM 实盘
+                  <ArrowRight />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href={DISCORD_INVITE} target="_blank" rel="noreferrer">
+                  核对手数 · Discord
+                </a>
+              </Button>
+            </div>
+            <p className="mt-4 text-xs leading-relaxed text-subtle">
+              开户后联系 Discord @{DISCORD_HANDLE}，或蝙蝠 {BIANFU_ID}。未达标不开通。付款后概不退款的规则只适用于付费套餐，这档不是
+              Whop。
+            </p>
+          </div>
+          <div className="bg-fg p-6 text-champagne-fg md:p-10">
+            <p className="text-xs tracking-[0.22em] text-champagne-soft uppercase">
+              当月开通后
+            </p>
+            <h3 className="mt-3 font-display text-3xl">与月卡同一套</h3>
+            <p className="mt-2 text-sm text-champagne-fg/70">
+              不含终身席位的手数计划和 15 小时一对一。
+            </p>
+            <ul className="mt-6 space-y-2.5">
+              {MEMBER_CHECKS.map((line) => (
+                <li key={line} className="flex gap-2 text-sm">
+                  <Check className="mt-0.5 size-4 shrink-0 text-champagne-soft" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Plans() {
   const compact = PLANS.filter((p) => p.id === "monthly" || p.id === "halfyear");
   const highlight = PLANS.filter((p) => p.id === "yearly" || p.id === "lifetime");
@@ -256,7 +355,7 @@ function Plans() {
           权限清楚。付一次，按档进来。
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-center text-muted">
-          168 一路发，688 顺又发，888 发发发，999 长长久久。
+          118 一路发，588 顺又发，888 发发发，999 长长久久。
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -277,13 +376,6 @@ function Plans() {
     </section>
   );
 }
-
-function PartnerOffer() {
-  return (
-    <div className="mt-10 rounded-2xl border border-champagne/60 bg-surface p-6 shadow-border md:p-8" dangerouslySetInnerHTML={{__html: `<div><p class="text-xs tracking-[0.28em] text-champagne uppercase">TMGM 合作通道 · 活跃交易者</p><h3 class="mt-3 font-display text-2xl text-fg md:text-3xl">通过合作 Broker，月卡服务可免月费</h3><p class="mt-3 max-w-3xl text-sm leading-relaxed text-muted md:text-base">通过本页面的 TMGM 注册链接创建实盘账户并完成入金。每周累计交易达到 2 lot，即可按合作规则享有当月的月卡对应服务，月费不另收。学员无需额外联系，资格由导师根据实际交易记录核验。这项通道只适合本来就会主动交易的用户；终身席位不包含在内。</p><p class="mt-5 text-xs leading-relaxed text-subtle">资格需根据实际交易记录核验。TMGM 的开户、入金、交易条件和风险以 TMGM 官方条款为准；交易存在本金损失风险，本站不保证盈利。</p><p class="mt-5"><a class="inline-flex rounded-md bg-champagne px-5 py-3 text-sm font-medium text-bg" href="${TMGM_REFERRAL_URL}" target="_blank" rel="sponsored nofollow noreferrer">注册 TMGM →</a></p><p class="text-xs text-subtle">符合条件后无需联系，由导师核验</p></div>`}} />
-  );
-}
-
 
 function Mentor() {
   return (
