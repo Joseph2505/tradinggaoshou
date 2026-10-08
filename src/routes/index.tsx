@@ -246,10 +246,9 @@ function PlanCard({ plan }: { plan: Plan }) {
 
 function Partner() {
   const steps = [
-    "用下面的专属链接注册 TMGM，并开立实盘账户。",
-    "完成入金。不是这个链接开的户，不算合伙席位。",
-    "自己交易，每周合计 1 标准手。按经纪商报表核对，不是口头说。",
-    "联系我们核对后，开通当月 VIP：信号、每日分析、帮你看单。与月卡相同。",
+    "用下面的专属链接注册 TMGM，开立实盘账户，并完成入金。",
+    "每周合计 1 标准手就够。10 笔 0.1 手，或 20 笔 0.05 手，一周很快到。",
+    "账户开好就联系我们。联系上，当月月卡权益直接开。",
   ];
   return (
     <section id="partner" className="scroll-mt-20 px-5 py-20 md:px-8 md:py-28">
@@ -261,8 +260,8 @@ function Partner() {
           每周自己做 1 手，月卡可以免费。
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-muted">
-          用专属链接在 TMGM 开实盘、入金，并且自己每周合计交易 1 标准手。达标后开通当月
-          VIP，服务与月卡相同。终身席位不在此列。
+          用专属链接在 TMGM 开实盘、入金。账户开好就联系我们，当月月卡权益直接开。每周 1
+          标准手很快：10 笔 0.1 手，或 20 笔 0.05 手。终身席位不在此列。
         </p>
 
         <div className="mt-10 grid overflow-hidden rounded-2xl bg-surface shadow-border lg:grid-cols-[1.15fr_0.85fr]">
@@ -280,16 +279,16 @@ function Partner() {
               </p>
               <p className="mt-1 font-display text-4xl leading-none">每周 1 手</p>
               <p className="mt-2 text-sm text-champagne-fg/80">
-                一个自然周，自己的单，合计 1 标准手。不是每天 1 手。没到 1 手，当月不免费。
+                很快。10 笔 0.1 手，或 20 笔 0.05 手，一周就到。开好户联系我们，权益直接开。
               </p>
             </div>
             <div className="mt-6 flex items-end gap-3">
               <p className="text-sm text-subtle line-through tabular-nums">$118</p>
               <p className="font-display text-6xl leading-none text-fg tabular-nums">$0</p>
             </div>
-            <p className="mt-2 text-sm text-subtle">每月 · 条件达标后开通</p>
+            <p className="mt-2 text-sm text-subtle">开好户，联系我们即开通</p>
             <p className="mt-1 text-sm text-champagne">
-              原月卡价 $118。走合伙链接并每周合计 1 手，当月服务免费。
+              原月卡价 $118。走合伙链接开户后联系我们，当月服务免费。
             </p>
             <ol className="mt-8 space-y-3">
               {steps.map((line, i) => (
@@ -310,13 +309,13 @@ function Partner() {
               </Button>
               <Button asChild variant="outline" size="lg">
                 <a href={DISCORD_INVITE} target="_blank" rel="noreferrer">
-                  核对手数 · Discord
+                  开户后联系我们
                 </a>
               </Button>
             </div>
             <p className="mt-4 text-xs leading-relaxed text-subtle">
-              开户后联系 Discord @{DISCORD_HANDLE}，或蝙蝠 {BIANFU_ID}。未达标不开通。付款后概不退款的规则只适用于付费套餐，这档不是
-              Whop。
+              开好户联系 Discord @{DISCORD_HANDLE}，或蝙蝠 {BIANFU_ID}。联系上就开当月权益。这档不是
+              Whop，不含终身席位。
             </p>
           </div>
           <div className="bg-fg p-6 text-champagne-fg md:p-10">
