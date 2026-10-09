@@ -20,7 +20,10 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=10" />
+    <link rel="stylesheet" href="styles.css?v=12" />
+    <script>
+      try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
+    </script>
   </head>
   <body>
     <header>
@@ -29,22 +32,26 @@
           <img src="logo.png" alt="Trading糕手" />
         </a>
         <nav class="nav-links">
-          <a href="#plans">会员</a>
-          <a href="#partner">合伙席位</a>
-          <a href="#mentor">导师</a>
-          <a href="#lifetime">终身席位</a>
-          <a href="#faq">常见问题</a>
-          <a class="btn btn-gold" href="#contact">付款加入</a>
+          <a href="#plans" data-en="Plans">会员</a>
+          <a href="#partner" data-en="Partner">合伙席位</a>
+          <a href="#mentor" data-en="Mentor">导师</a>
+          <a href="#lifetime" data-en="Lifetime">终身席位</a>
+          <a href="#faq" data-en="FAQ">常见问题</a>
+          <a class="btn btn-gold" href="#contact" data-en="Join">付款加入</a>
         </nav>
+        <div class="prefs">
+          <button type="button" id="langBtn" class="pref">EN</button>
+          <button type="button" id="themeBtn" class="pref" aria-label="Dark mode">☾</button>
+        </div>
         <button class="menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
       </div>
       <div class="mobile" id="mobileNav">
-        <a href="#plans">会员</a>
-        <a href="#partner">合伙席位</a>
-        <a href="#mentor">导师</a>
-        <a href="#lifetime">终身席位</a>
-        <a href="#faq">常见问题</a>
-        <a href="#contact">付款加入</a>
+        <a href="#plans" data-en="Plans">会员</a>
+        <a href="#partner" data-en="Partner">合伙席位</a>
+        <a href="#mentor" data-en="Mentor">导师</a>
+        <a href="#lifetime" data-en="Lifetime">终身席位</a>
+        <a href="#faq" data-en="FAQ">常见问题</a>
+        <a href="#contact" data-en="Join">付款加入</a>
       </div>
     </header>
 
@@ -52,118 +59,118 @@
       <img class="bg" src="images/hero.jpg" alt="" />
       <div class="veil"></div>
       <div class="hero-inner">
-        <p class="kicker">黄金实盘</p>
+        <p class="kicker" data-en="Live gold">黄金实盘</p>
         <h1>Trading糕手</h1>
         <p class="lead">
-          三年专职交易，两年半稳定盈利。<br class="hide-md" />
-          目标：让你成为能管住风险的盈利交易者。
+          <span data-en="Three years full-time. Two and a half years consistently profitable.">三年专职交易，两年半稳定盈利。</span><br class="hide-md" />
+          <span data-en="The aim: a profitable trader who can control risk.">目标：让你成为能管住风险的盈利交易者。</span>
         </p>
         <div class="hero-cta">
-          <a class="btn btn-lg btn-gold" href="#plans">查看套餐 →</a>
-          <a class="btn btn-lg btn-outline" href="#mentor">认识导师</a>
+          <a class="btn btn-lg btn-gold" href="#plans" data-en="See the plans →">查看套餐 →</a>
+          <a class="btn btn-lg btn-outline" href="#mentor" data-en="Meet the mentor">认识导师</a>
         </div>
         <div class="price-row">
-          <a href="#pay-monthly"><strong>$118</strong><span>月卡 · 一路发</span></a>
-          <a href="#pay-halfyear"><strong>$588</strong><span>半年卡 · 顺又发</span></a>
-          <a href="#pay-yearly"><strong>$888</strong><span>年卡 · 发发发</span></a>
-          <a href="#pay-lifetime"><strong>$999</strong><span>终身席位 · 长长久久</span></a>
+          <a href="#pay-monthly"><strong>$118</strong><span data-en="Monthly">月卡 · 一路发</span></a>
+          <a href="#pay-halfyear"><strong>$588</strong><span data-en="6 months">半年卡 · 顺又发</span></a>
+          <a href="#pay-yearly"><strong>$888</strong><span data-en="Year">年卡 · 发发发</span></a>
+          <a href="#pay-lifetime"><strong>$999</strong><span data-en="Lifetime">终身席位 · 长长久久</span></a>
         </div>
       </div>
     </section>
 
     <section class="stats">
       <div class="stats-grid">
-        <div><strong>3 年</strong><span>专职交易</span></div>
-        <div><strong>2.5 年</strong><span>持续稳定盈利</span></div>
-        <div><strong>黄金</strong><span>只做这一品种</span></div>
-        <div><strong>风险优先</strong><span>先活下来再赚钱</span></div>
+        <div><strong>3 年</strong><span data-en="Full-time trading">专职交易</span></div>
+        <div><strong>2.5 年</strong><span data-en="Consistently profitable">持续稳定盈利</span></div>
+        <div><strong data-en="Gold">黄金</strong><span data-en="The only market">只做这一品种</span></div>
+        <div><strong data-en="Risk first">风险优先</strong><span data-en="Survive, then profit">先活下来再赚钱</span></div>
       </div>
     </section>
 
     <section class="section" id="plans">
-      <p class="kicker center">一次加入</p>
-      <h2 class="center">权限清楚。付一次，按档进来。</h2>
-      <p class="muted center mt">118 一路发，588 顺又发，888 发发发，999 长长久久。</p>
+      <p class="kicker center" data-en="One payment">一次加入</p>
+      <h2 class="center" data-en="Clear access. Pay once, enter that tier.">权限清楚。付一次，按档进来。</h2>
+      <p class="muted center mt" data-en="118, 588, 888, 999.">118 一路发，588 顺又发，888 发发发，999 长长久久。</p>
       <div class="wrap">
         <div class="plans-grid" id="plansGrid"></div>
-        <p class="subtle center mt" style="font-size:0.875rem">
+        <p class="subtle center mt" style="font-size:0.875rem" data-en="UnionPay, WeChat, Alipay → convert to USDT, then contact us · Visa / Mastercard / PayPal → Whop · No refunds">
           银联、微信、支付宝 → 换成 USDT 再联系我们　·　Visa / Mastercard / PayPal → Whop　·　付款后概不退款
         </p>
       </div>
     </section>
 
     <section class="section" id="partner">
-      <p class="kicker center">合伙席位 · 仅活跃交易者</p>
-      <h2 class="center">每周自己做 1 手，月卡可以免费。</h2>
-      <p class="muted center mt" style="max-width:40rem;margin-left:auto;margin-right:auto">
+      <p class="kicker center" data-en="Partner seat · active traders only">合伙席位 · 仅活跃交易者</p>
+      <h2 class="center" data-en="Trade 1 lot a week yourself. The monthly seat is free.">每周自己做 1 手，月卡可以免费。</h2>
+      <p class="muted center mt" style="max-width:40rem;margin-left:auto;margin-right:auto" data-en="Only for active traders: people who place their own trades every week. Open a live TMGM account through the partner link and deposit. Once it is open, contact us and that month starts. Lifetime is not included.">
         只给活跃交易者：自己每周都在做单的人。用专属链接在 TMGM 开实盘、入金。账户开好就联系我们，当月月卡权益直接开。终身席位不在此列。
       </p>
       <div class="wrap partner">
         <div class="partner-main">
-          <p class="pill">TMGM 合伙 · 活跃发</p>
-          <h3>合伙席位 · 活跃发</h3>
-          <p class="muted mt">给自己也在做单的人。不是跟单凑数，不是只开户不交易。</p>
+          <p class="pill" data-en="TMGM partner · active">TMGM 合伙 · 活跃发</p>
+          <h3 data-en="Partner seat">合伙席位 · 活跃发</h3>
+          <p class="muted mt" data-en="For people who trade on their own. Not a copy group. Not an account you never use.">给自己也在做单的人。不是跟单凑数，不是只开户不交易。</p>
           <div class="lot">
-            <p class="kicker">免费条件，看这里</p>
-            <p class="lot-num">每周 1 手</p>
-            <p>很快。10 笔 0.1 手，或 20 笔 0.05 手，一周就到。开好户联系我们，权益直接开。</p>
+            <p class="kicker" data-en="The free condition">免费条件，看这里</p>
+            <p class="lot-num" data-en="1 lot / week">每周 1 手</p>
+            <p data-en="Fast. Ten 0.1 trades, or twenty 0.05 trades, in a week. Contact us once the account is open.">很快。10 笔 0.1 手，或 20 笔 0.05 手，一周就到。开好户联系我们，权益直接开。</p>
           </div>
           <p class="strike">$118</p>
           <p class="price big">$0</p>
-          <p class="subtle mt">开好户，联系我们即开通</p>
-          <p class="gold" style="font-size:0.875rem;margin-top:0.25rem">原月卡价 $118。走合伙链接开户后联系我们，当月服务免费。</p>
+          <p class="subtle mt" data-en="Open the account, contact us, access starts">开好户，联系我们即开通</p>
+          <p class="gold" style="font-size:0.875rem;margin-top:0.25rem" data-en="The paid monthly price is $118. Open through the partner link, then contact us: that month is free.">原月卡价 $118。走合伙链接开户后联系我们，当月服务免费。</p>
           <ol class="steps-num">
-            <li>用下面的专属链接注册 TMGM，开立实盘账户，并完成入金。</li>
-            <li>每周合计 1 标准手就够。10 笔 0.1 手，或 20 笔 0.05 手，一周很快到。</li>
-            <li>账户开好就联系我们。联系上，当月月卡权益直接开。</li>
+            <li data-en="Register on TMGM with the partner link, open a live account, and deposit.">用下面的专属链接注册 TMGM，开立实盘账户，并完成入金。</li>
+            <li data-en="One standard lot a week is enough. Ten 0.1 trades, or twenty 0.05 trades.">每周合计 1 标准手就够。10 笔 0.1 手，或 20 笔 0.05 手，一周很快到。</li>
+            <li data-en="Contact us once the account is open. That month’s access starts.">账户开好就联系我们。联系上，当月月卡权益直接开。</li>
           </ol>
           <div class="hero-cta">
-            <a class="btn btn-lg btn-gold" href="https://portal.cnfxhero.com/register?node=MzI1Njk0&language=zh-Hans" target="_blank" rel="noreferrer">用专属链接开 TMGM 实盘 →</a>
-            <a class="btn btn-lg btn-outline" href="https://discord.gg/rRAVnpF3DU" target="_blank" rel="noreferrer">开户后联系我们</a>
+            <a class="btn btn-lg btn-gold" href="https://portal.cnfxhero.com/register?node=MzI1Njk0&language=zh-Hans" target="_blank" rel="noreferrer" data-en="Open TMGM with the partner link →">用专属链接开 TMGM 实盘 →</a>
+            <a class="btn btn-lg btn-outline" href="https://discord.gg/rRAVnpF3DU" target="_blank" rel="noreferrer" data-en="Contact us after opening">开户后联系我们</a>
           </div>
-          <p class="subtle mt" style="font-size:0.75rem">开好户联系 Discord @tradinggaoshou，或蝙蝠 154375295。联系上就开当月权益。这档不是 Whop，不含终身席位。</p>
+          <p class="subtle mt" style="font-size:0.75rem" data-en="After opening, contact Discord @tradinggaoshou or Bat 154375295. This is not Whop, and it does not include lifetime.">开好户联系 Discord @tradinggaoshou，或蝙蝠 154375295。联系上就开当月权益。这档不是 Whop，不含终身席位。</p>
         </div>
         <div class="partner-side">
-          <p class="kicker">当月开通后</p>
-          <h3>与月卡同一套</h3>
-          <p class="mt" style="font-size:0.9rem;color:var(--muted)">不含终身席位的手数计划和 15 小时一对一。</p>
+          <p class="kicker" data-en="Once that month starts">当月开通后</p>
+          <h3 data-en="Same as monthly">与月卡同一套</h3>
+          <p class="mt" style="font-size:0.9rem;color:var(--muted)" data-en="No lifetime risk plan, and no 15 hours of one-to-one.">不含终身席位的手数计划和 15 小时一对一。</p>
           <ul class="checks light" id="partnerChecks"></ul>
         </div>
       </div>
       <div class="wrap tip tip-corner">
-        <button type="button" class="tip-btn" aria-label="查看不同账户的点差">不同账户的点差</button>
+        <button type="button" class="tip-btn" aria-label="Spreads by account" data-en="Spreads by account">不同账户的点差</button>
         <div class="tip-panel" role="tooltip">
-          <p class="tip-kicker">点差详情 · 活跃交易者</p>
-          <p class="tip-title">黄金点差等级，按每周手数维持</p>
-          <p class="tip-lead">用专属链接在 TMGM 开实盘。等级看点差，资格看每周标准手。</p>
+          <p class="tip-kicker" data-en="Spreads · active traders">点差详情 · 活跃交易者</p>
+          <p class="tip-title" data-en="Gold spread tiers, kept by weekly lots">黄金点差等级，按每周手数维持</p>
+          <p class="tip-lead" data-en="Open a live account through the partner link. The tier sets the spread. The weekly lots keep it.">用专属链接在 TMGM 开实盘。等级看点差，资格看每周标准手。</p>
           <table>
             <thead>
               <tr>
-                <th>账户等级</th>
-                <th>黄金平均点差<br />XAUUSD</th>
-                <th>每周维持手数</th>
+                <th data-en="Account">账户等级</th>
+                <th><span data-en="Avg. gold spread">黄金平均点差</span><br />XAUUSD</th>
+                <th data-en="Lots to keep / week">每周维持手数</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>STD</strong><span>标准</span></td>
+                <td><strong>STD</strong><span data-en="Standard">标准</span></td>
                 <td>30 ~ 35</td>
                 <td>1 手</td>
               </tr>
               <tr>
-                <td><strong>PM</strong><span>高级</span></td>
+                <td><strong>PM</strong><span data-en="Advanced">高级</span></td>
                 <td>25 ~ 30</td>
                 <td>1.5 手</td>
               </tr>
               <tr>
-                <td><strong>PRO</strong><span>专业</span></td>
+                <td><strong>PRO</strong><span data-en="Professional">专业</span></td>
                 <td>20 ~ 25</td>
                 <td>2 手</td>
               </tr>
             </tbody>
           </table>
-          <p class="tip-note">点差怎么看：黄金 20 点差，大约就是 4300.00 到 4300.20。</p>
-          <p class="tip-note">一周没做到对应手数，免费会员与点差等级取消。1 手 = 10 笔 0.1 手，或 20 笔 0.05 手。</p>
+          <p class="tip-note" data-en="How to read it: a 20-point gold spread is about 4300.00 to 4300.20.">点差怎么看：黄金 20 点差，大约就是 4300.00 到 4300.20。</p>
+          <p class="tip-note" data-en="Miss the weekly lots and the free month plus the spread tier stop. 1 lot = ten 0.1 trades, or twenty 0.05 trades.">一周没做到对应手数，免费会员与点差等级取消。1 手 = 10 笔 0.1 手，或 20 笔 0.05 手。</p>
         </div>
       </div>
     </section>
@@ -172,19 +179,19 @@
       <div class="wrap two">
         <img class="frame" src="images/paris.jpg" alt="巴黎拉德芳斯夜景" />
         <div>
-          <p class="kicker">导师</p>
-          <h2>法国出生，中文授课。</h2>
-          <p class="muted mt">
+          <p class="kicker" data-en="Mentor">导师</p>
+          <h2 data-en="Born in France. Teaching in Chinese.">法国出生，中文授课。</h2>
+          <p class="muted mt" data-en="I was born in France, studied and worked there, then learned Chinese. Master’s in data engineering and AI for finance from EFREI Paris. I worked in a Swiss bank, and as an AI engineer at Veolia.">
             我在法国出生，一直在法国读书、工作，后来学了中文。毕业于巴黎 EFREI，数据工程与金融人工智能硕士。曾在瑞士银行任职，也在威立雅做过人工智能工程师。
           </p>
-          <p class="muted mt">
+          <p class="muted mt" data-en="I left institutions three years ago to trade full-time. Two and a half years consistently profitable. I traded forex, and now I focus on gold. After living in several countries, I settled in China and teach in Chinese.">
             三年前离开机构，专职交易。两年半稳定盈利。做外汇，现在更专注黄金。旅居过不同国家之后，我决定在中国定居，用中文带学员。
           </p>
           <ul class="creds">
-            <li>巴黎 EFREI · 数据工程与金融人工智能硕士</li>
-            <li>瑞士银行 · 威立雅人工智能工程师</li>
-            <li>三年专职 · 两年半稳定盈利 · 只做黄金</li>
-            <li>现居中国 · 中文授课</li>
+            <li data-en="EFREI Paris · Master’s in data engineering and AI for finance">巴黎 EFREI · 数据工程与金融人工智能硕士</li>
+            <li data-en="Swiss bank · AI engineer at Veolia">瑞士银行 · 威立雅人工智能工程师</li>
+            <li data-en="Three years full-time · two and a half profitable · gold only">三年专职 · 两年半稳定盈利 · 只做黄金</li>
+            <li data-en="Based in China · taught in Chinese">现居中国 · 中文授课</li>
           </ul>
         </div>
       </div>
@@ -192,9 +199,9 @@
 
     <section class="section risk">
       <div class="risk-box wrap">
-        <p class="kicker">风险管理</p>
-        <h2>先活下来，再谈赚钱。</h2>
-        <p class="muted mt">
+        <p class="kicker" data-en="Risk">风险管理</p>
+        <h2 data-en="Stay alive first. Profit comes after.">先活下来，再谈赚钱。</h2>
+        <p class="muted mt" data-en="Trading is not a home run, and not one trade that makes the year. What matters is the R multiple, and whether the account is still there. Never put the whole account at risk. Before each trade ask three things: where is the stop, how many lots, what is the worst loss. A signal is a direction and a reason. You still execute. Send me your own trades and I will break them down.">
           交易不是全垒打，不是一笔把钱赚完。我们不关心你这一单赚了多少——关心的是你做了多少 RR，你怎么做到没爆仓、把本金保住。永远不要把全部资金押上去。每一笔先问三件事：止损在哪、手数多大、最坏能亏多少。信号只给方向和理由，执行是你的。你自己做的单，随时发给我，我帮你拆。
         </p>
       </div>
@@ -204,31 +211,31 @@
       <div class="wrap two">
         <div>
           <p class="kicker">$999 · 长长久久</p>
-          <h2>终身席位，不是一门课。</h2>
-          <p class="muted mt">
+          <h2 data-en="Lifetime is not a course.">终身席位，不是一门课。</h2>
+          <p class="muted mt" data-en="There is no recorded curriculum. What you get extra is a clear risk and lot plan. It fits someone with a base who wants to go deeper, someone experienced who is still not profitable, or a beginner who wants a person beside them.">
             没有录播课表。多出来的是一份清晰的风险管理与手数计划。已有基础想加深、有经验但还不盈利、或新手需要人带着，都可以。
           </p>
           <div class="perks">
             <div class="perk">
-              <h3>风险管理与手数计划</h3>
-              <p class="muted mt" style="font-size:0.9rem">终身席位多出来的，是一份只属于你的计划：止损、仓位、每笔下多少 lot。按你的本金写死，而不是套一套网课。</p>
+              <h3 data-en="Risk and lot plan">风险管理与手数计划</h3>
+              <p class="muted mt" style="font-size:0.9rem" data-en="Lifetime adds a plan that is only yours: the stop, the size, how many lots on each trade. Written to your capital, not a generic course.">终身席位多出来的，是一份只属于你的计划：止损、仓位、每笔下多少 lot。按你的本金写死，而不是套一套网课。</p>
             </div>
             <div class="perk">
-              <h3>不是课程，是陪伴</h3>
-              <p class="muted mt" style="font-size:0.9rem">没有录播课表。已有知识想加深的、做了几年还不稳的、刚入门需要人带着的，都可以。我陪你学，不替你上课。</p>
+              <h3 data-en="Not a course. Company.">不是课程，是陪伴</h3>
+              <p class="muted mt" style="font-size:0.9rem" data-en="No lesson library. People who already know and want depth, people who have traded for years and are still unstable, and beginners who need someone there. I stay with the learning. I do not teach a class.">没有录播课表。已有知识想加深的、做了几年还不稳的、刚入门需要人带着的，都可以。我陪你学，不替你上课。</p>
             </div>
             <div class="perk">
-              <h3>15 小时一对一</h3>
-              <p class="muted mt" style="font-size:0.9rem">八周，每周两次。复盘你的黄金单，把正在亏钱的习惯改掉。</p>
+              <h3 data-en="15 hours, one to one">15 小时一对一</h3>
+              <p class="muted mt" style="font-size:0.9rem" data-en="Eight weeks, twice a week. We review your gold trades and change the habits that are losing money.">八周，每周两次。复盘你的黄金单，把正在亏钱的习惯改掉。</p>
             </div>
             <div class="perk">
-              <h3>目标是活下来，不是全垒打</h3>
-              <p class="muted mt" style="font-size:0.9rem">不关心一笔赚了多少。关心 RR、你有没有爆仓、本金还在不在。信号有就给，没有就看每日分析。</p>
+              <h3 data-en="The aim is to survive">目标是活下来，不是全垒打</h3>
+              <p class="muted mt" style="font-size:0.9rem" data-en="Not how much one trade made. The R multiple, whether you blew the account, whether the capital is still there. Signals when there is a setup. A daily read when there is not.">不关心一笔赚了多少。关心 RR、你有没有爆仓、本金还在不在。信号有就给，没有就看每日分析。</p>
             </div>
           </div>
           <div class="hero-cta">
-            <a class="btn btn-lg btn-gold" href="https://whop.com/checkout/plan_UmclxxkidBWQd" target="_blank" rel="noreferrer">去 Whop 付款 · $999 →</a>
-            <p class="subtle" style="font-size:0.875rem">含全部订阅权益，一次付清。</p>
+            <a class="btn btn-lg btn-gold" href="https://whop.com/checkout/plan_UmclxxkidBWQd" target="_blank" rel="noreferrer" data-en="Pay on Whop · $999 →">去 Whop 付款 · $999 →</a>
+            <p class="subtle" style="font-size:0.875rem" data-en="Everything in the subscriptions, paid once.">含全部订阅权益，一次付清。</p>
           </div>
         </div>
         <img class="frame" src="images/mentor.jpg" alt="一对一复盘" />
@@ -237,13 +244,13 @@
 
     <section class="section">
       <div class="wrap">
-        <p class="kicker">流程</p>
-        <h2>四步，没有中间商。</h2>
+        <p class="kicker" data-en="How it works">流程</p>
+        <h2 data-en="Four steps. No middleman.">四步，没有中间商。</h2>
         <div class="steps">
-          <div><p class="n">01</p><h3>选套餐</h3><p class="muted mt" style="font-size:0.9rem">月卡、半年、年卡或终身席位。数字即口彩。</p></div>
-          <div><p class="n">02</p><h3>USDT 或 Whop</h3><p class="muted mt" style="font-size:0.9rem">有 Visa / Mastercard / PayPal 走 Whop。只有银联、微信、支付宝的，换成 USDT 后联系我们。</p></div>
-          <div><p class="n">03</p><h3>进 Discord</h3><p class="muted mt" style="font-size:0.9rem">随时可进。主社群是 Discord。没有 VPN 用蝙蝠。</p></div>
-          <div><p class="n">04</p><h3>开通权益</h3><p class="muted mt" style="font-size:0.9rem">确认到账后，VIP 有效期内每笔都可复盘。</p></div>
+          <div><p class="n">01</p><h3 data-en="Pick a plan">选套餐</h3><p class="muted mt" style="font-size:0.9rem" data-en="Monthly, six months, a year, or lifetime.">月卡、半年、年卡或终身席位。数字即口彩。</p></div>
+          <div><p class="n">02</p><h3 data-en="USDT or Whop">USDT 或 Whop</h3><p class="muted mt" style="font-size:0.9rem" data-en="Visa, Mastercard or PayPal goes through Whop. UnionPay, WeChat or Alipay: convert to USDT, then contact us.">有 Visa / Mastercard / PayPal 走 Whop。只有银联、微信、支付宝的，换成 USDT 后联系我们。</p></div>
+          <div><p class="n">03</p><h3 data-en="Enter Discord">进 Discord</h3><p class="muted mt" style="font-size:0.9rem" data-en="You can join any time. Discord is the main room. Without a VPN, use Bat.">随时可进。主社群是 Discord。没有 VPN 用蝙蝠。</p></div>
+          <div><p class="n">04</p><h3 data-en="Access starts">开通权益</h3><p class="muted mt" style="font-size:0.9rem" data-en="After payment is confirmed, every trade can be reviewed while VIP is active.">确认到账后，VIP 有效期内每笔都可复盘。</p></div>
         </div>
       </div>
     </section>
@@ -251,23 +258,23 @@
     <section class="section faq wrap" id="faq">
       <div>
         <p class="kicker">FAQ</p>
-        <h2>先把话说清楚。</h2>
+        <h2 data-en="The plain version.">先把话说清楚。</h2>
       </div>
       <div id="faqList"></div>
     </section>
 
     <section class="section" id="contact">
       <div class="pay">
-        <p class="kicker center">付款</p>
-        <h2 class="center">选套餐，再选怎么付。</h2>
-        <p class="muted center mt">
+        <p class="kicker center" data-en="Payment">付款</p>
+        <h2 class="center" data-en="Pick a plan, then how you pay.">选套餐，再选怎么付。</h2>
+        <p class="muted center mt" data-en="Visa, Mastercard or PayPal: pay on Whop, then you can enter Discord from there. UnionPay, WeChat or Alipay: convert to USDT, then contact us.">
           有 Visa / Mastercard / PayPal：走 Whop，付完可直接进 Discord。
           只有银联、人民币、微信支付、支付宝：先换成 USDT，再联系我们。
         </p>
         <div class="plan-pick" id="planPick"></div>
         <div class="pay-tabs">
           <button class="btn btn-lg btn-outline" id="btnUsdt" type="button">USDT</button>
-          <a class="btn btn-lg btn-gold" id="btnWhop" href="#" target="_blank" rel="noreferrer">去 Whop 付款</a>
+          <a class="btn btn-lg btn-gold" id="btnWhop" href="#" target="_blank" rel="noreferrer" data-en="Pay on Whop">去 Whop 付款</a>
         </div>
         <div id="usdtBox" class="hidden">
           <p class="muted mt" id="usdtHint"></p>
@@ -279,12 +286,12 @@
               <span><small>Discord · Trading糕手</small>@tradinggaoshou</span><span>复制</span>
             </button>
             <button type="button" data-copy="keer0501" data-ok="客服已复制">
-              <span><small>Discord 客服</small>@keer0501</span><span>复制</span>
+              <span><small data-en="Discord support">Discord 客服</small>@keer0501</span><span>复制</span>
             </button>
           </div>
         </div>
-        <a class="btn btn-outline btn-full mt" href="https://discord.gg/rRAVnpF3DU" target="_blank" rel="noreferrer">加入 Discord 主社群</a>
-        <p class="subtle center mt" style="font-size:0.75rem">没付钱也可以先进 Discord。付款后概不退款。</p>
+        <a class="btn btn-outline btn-full mt" href="https://discord.gg/rRAVnpF3DU" target="_blank" rel="noreferrer" data-en="Join the Discord">加入 Discord 主社群</a>
+        <p class="subtle center mt" style="font-size:0.75rem" data-en="You can enter Discord before paying. No refunds after payment.">没付钱也可以先进 Discord。付款后概不退款。</p>
       </div>
     </section>
 
@@ -292,9 +299,9 @@
       <img src="images/desk.jpg" alt="" />
       <div class="veil"></div>
       <div class="closing-inner">
-        <h2>先管风险，再谈盈利。</h2>
-        <p class="muted mt">自己做的单，发给我，我帮你拆。不看一把赚多少，看 RR，看你有没有活下来。</p>
-        <p class="mt"><a class="btn btn-lg btn-gold" href="#contact">去付款 →</a></p>
+        <h2 data-en="Control the risk before you talk about profit.">先管风险，再谈盈利。</h2>
+        <p class="muted mt" data-en="Send me the trades you take yourself. I will break them down. Not how much one trade made. The R multiple, and whether you survived.">自己做的单，发给我，我帮你拆。不看一把赚多少，看 RR，看你有没有活下来。</p>
+        <p class="mt"><a class="btn btn-lg btn-gold" href="#contact" data-en="Go to payment →">去付款 →</a></p>
       </div>
     </section>
 
@@ -304,31 +311,31 @@
           <div class="brand">
             <img src="logo.png" alt="Trading糕手" />
           </div>
-          <p class="muted mt" style="max-width:28rem;font-size:0.9rem">
+          <p class="muted mt" style="max-width:28rem;font-size:0.9rem" data-en="A live gold desk. Born in France, teaching in Chinese. Master’s from EFREI Paris, based in China. The aim: a profitable trader who can control risk.">
             黄金实盘教室。法国出生，中文授课。巴黎 EFREI 硕士，现居中国。目标：让你成为能管住风险的盈利交易者。
           </p>
         </div>
         <div class="cols">
           <div>
-            <span class="label">导航</span>
-            <a href="#plans">会员套餐</a>
-            <a href="#partner">合伙席位</a>
-            <a href="#mentor">关于导师</a>
-            <a href="#lifetime">终身席位</a>
-            <a href="#faq">常见问题</a>
+            <span class="label" data-en="Menu">导航</span>
+            <a href="#plans" data-en="Plans">会员套餐</a>
+            <a href="#partner" data-en="Partner seat">合伙席位</a>
+            <a href="#mentor" data-en="About the mentor">关于导师</a>
+            <a href="#lifetime" data-en="Lifetime">终身席位</a>
+            <a href="#faq" data-en="FAQ">常见问题</a>
           </div>
           <div>
-            <span class="label">付款</span>
-            <p>银联 / 微信 / 支付宝 → 换成 USDT</p>
+            <span class="label" data-en="Payment">付款</span>
+            <p data-en="UnionPay / WeChat / Alipay → convert to USDT">银联 / 微信 / 支付宝 → 换成 USDT</p>
             <p>Visa / Mastercard / PayPal → Whop</p>
-            <p>活跃交易者：TMGM 专属链接，每周自己做 1 手，当月月卡免费</p>
+            <p data-en="Active traders: the TMGM link, 1 lot a week, that month free">活跃交易者：TMGM 专属链接，每周自己做 1 手，当月月卡免费</p>
           </div>
         </div>
       </div>
-      <div class="legal">
+      <div class="legal" data-en="Risk: leveraged gold can lose the capital you put in. Past results are not future results. This is education and a community, not investment advice. No refunds after payment.">
         风险提示：黄金及杠杆产品交易存在本金亏损可能。过往表现不代表未来收益。本站内容为教育与社群服务，不构成任何投资建议。付款后概不退款。
       </div>
     </footer>
-    <script src="app.js?v=11"></script>
+    <script src="app.js?v=12"></script>
   </body>
 </html>
