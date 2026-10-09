@@ -69,19 +69,14 @@ function cardHTML(p) {
       <p class="gold" style="font-size:0.875rem;margin-top:0.25rem">${note}</p>
     </div>
     <ul class="checks">${checks.map((c) => `<li>${c}</li>`).join("")}</ul>
-    <div class="mt" style="display:grid;gap:0.75rem">
+    <div class="mt actions" style="display:grid;gap:0.75rem">
       <a class="btn btn-lg ${p.id === "lifetime" ? "btn-gold" : "btn-soft"} btn-full" href="${WHOP[p.id]}" target="_blank" rel="noreferrer">去 Whop 付款 →</a>
       <a class="btn-ghost" href="#pay-${p.id}" style="text-align:center">用 USDT？银联 / 微信 / 支付宝先换成 USDT，再联系我们</a>
     </div>
   </article>`;
 }
 
-document.getElementById("plansCompact").innerHTML = PLANS.filter((p) => p.months && p.months < 12)
-  .map(cardHTML)
-  .join("");
-document.getElementById("plansHighlight").innerHTML = PLANS.filter((p) => !p.months || p.months >= 12)
-  .map(cardHTML)
-  .join("");
+document.getElementById("plansGrid").innerHTML = PLANS.map(cardHTML).join("");
 const partnerChecks = document.getElementById("partnerChecks");
 if (partnerChecks) {
   partnerChecks.innerHTML = MEMBER.map((c) => `<li>${c}</li>`).join("");
