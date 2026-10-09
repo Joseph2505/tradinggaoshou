@@ -106,6 +106,14 @@ function createNeonSql(): Promise<Sql> {
 }
 
 async function createPgliteSql(): Promise<Sql> {
+  // PGLite reads a data file from disk and uses eval. Cloudflare Workers, which
+  // is what Whop uses, can do neither. Fail before constructing it so the
+  // public pages still render.
+  const ua =
+    (globalThis as { navigator?: { userAgent?: string } }).navigator?.userAgent ?? "";
+  if (ua.includes("Cloudflare-Workers")) {
+    throw new Error("PGLite is not available on Cloudflare Workers");
+  }
   // Embedded Postgres, imported on demand so it never loads on the Neon path.
   // One in-memory instance per process, shared across HMR module instances, so
   // data survives source edits (it resets on dev-server restart).
@@ -221,7 +229,11 @@ export async function getPglite(): Promise<import("@electric-sql/pglite").PGlite
  */
 export function ensureDbReady(): Promise<void> {
   if (dbSource !== "pglite") return Promise.resolve();
-  return getSql().then(() => undefined);
+  return getSql()
+    .then(() => undefined)
+    .catch((err) => {
+      console.error("[db] PGLite bootstrap failed:", err);
+    });
 }
 
 // Server-only eager start: kick PGLite bootstrap as soon as this module loads in
