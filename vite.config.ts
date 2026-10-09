@@ -1,4 +1,5 @@
 import { readdirSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
@@ -145,7 +146,7 @@ function authPopupPlugin(): Plugin {
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
-export default defineConfig(() => ({
+export default defineConfig(({ command }) => ({
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -156,7 +157,19 @@ export default defineConfig(() => ({
     port: 8081,
     strictPort: true,
   },
-  resolve: { tsconfigPaths: true },
+  resolve: {
+    tsconfigPaths: true,
+    alias:
+      command === "build"
+        ? {
+            // Whop resolves this entry. Serve the GitHub Pages site instead of
+            // the database-backed React server, which 500s on Workers.
+            "@tanstack/react-start/server-entry": fileURLToPath(
+              new URL("./src/whop-mirror.ts", import.meta.url),
+            ),
+          }
+        : {},
+  },
   plugins: [
     // Whop hosting runs on Cloudflare Workers. Must stay before tanstackStart.
     cloudflare({ viteEnvironment: { name: "ssr" } }),
