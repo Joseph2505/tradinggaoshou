@@ -129,6 +129,20 @@ h2 { font-size: var(--title); margin-top: 0.75rem; }
   border-radius: 1rem; padding: 1rem 1rem 0.85rem;
   box-shadow: var(--shadow);
 }
+.tip-corner {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1.5rem 1.35rem;
+}
+.tip-corner .tip-btn { margin-top: 0; }
+.tip-corner .tip-panel {
+  top: auto;
+  bottom: calc(100% + 0.55rem);
+  left: auto;
+  right: 0;
+  transform: none;
+}
 .tip:hover .tip-panel,
 .tip:focus-within .tip-panel,
 .tip.open .tip-panel { display: block; }
