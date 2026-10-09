@@ -1,8 +1,8 @@
 const WHOP = {
-  monthly: "https://whop.com/tradinggaoshou/products/65dfbc5e-de1c-4b89-a972-79c52bf991d0/",
-  halfyear: "https://whop.com/tradinggaoshou/products/6f919675-3a63-4c2d-890f-599c453e014a/",
-  yearly: "https://whop.com/tradinggaoshou/products/4ecf2972-a499-4829-a18e-1562ae94fed6/",
-  lifetime: "https://whop.com/tradinggaoshou/products/c5a96db9-8a18-47a7-9271-62eba5b8d0b7/",
+  monthly: "https://whop.com/checkout/plan_8laMn28w56i7l",
+  halfyear: "https://whop.com/checkout/plan_QlI5DLx0Tz4Xl",
+  yearly: "https://whop.com/checkout/plan_31RlCjckYwIUH",
+  lifetime: "https://whop.com/checkout/plan_UmclxxkidBWQd",
 };
 
 const MEMBER = [
