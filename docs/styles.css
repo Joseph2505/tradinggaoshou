@@ -108,6 +108,40 @@ h2 { font-size: var(--title); margin-top: 0.75rem; }
 .mt { margin-top: 1rem; }
 .gold { color: var(--champagne); }
 
+.tip { position: relative; }
+.tip-btn {
+  width: 1.65rem; height: 1.65rem; border-radius: 999px;
+  border: 1px solid var(--champagne); color: var(--champagne);
+  background: var(--surface); font-family: var(--font-display); font-size: 1rem; line-height: 1;
+  cursor: help;
+}
+.tip-panel {
+  display: none;
+  position: absolute; z-index: 30; top: calc(100% + 0.6rem); left: 50%;
+  transform: translateX(-50%);
+  width: min(34rem, calc(100vw - 2rem));
+  text-align: left; font-weight: 400;
+  background: var(--surface); color: var(--fg);
+  border-radius: 1rem; padding: 1rem 1rem 0.85rem;
+  box-shadow: var(--shadow);
+}
+.tip:hover .tip-panel,
+.tip:focus-within .tip-panel,
+.tip.open .tip-panel { display: block; }
+.tip-kicker { font-size: 0.7rem; letter-spacing: 0.16em; color: var(--champagne); }
+.tip-title { font-family: var(--font-display); font-size: 1.25rem; margin-top: 0.25rem; }
+.tip-lead { margin-top: 0.35rem; font-size: 0.8rem; color: var(--muted); }
+.tip-panel table { width: 100%; margin-top: 0.75rem; border-collapse: collapse; font-size: 0.85rem; }
+.tip-panel th {
+  background: #9a7040; color: #fffaf3; font-weight: 500; text-align: center;
+  padding: 0.55rem 0.4rem;
+}
+.tip-panel th:first-child { border-radius: 0.6rem 0 0 0; }
+.tip-panel th:last-child { border-radius: 0 0.6rem 0 0; }
+.tip-panel td { text-align: center; padding: 0.65rem 0.4rem; border-bottom: 1px solid var(--border); }
+.tip-panel td span { display: block; font-size: 0.7rem; color: var(--subtle); }
+.tip-note { margin-top: 0.55rem; font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
+
 .partner {
   margin-top: 2.5rem;
   display: grid;

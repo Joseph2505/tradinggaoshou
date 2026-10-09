@@ -139,6 +139,22 @@ document.querySelectorAll("[data-copy]").forEach((el) => {
   });
 });
 
+document.querySelectorAll(".tip").forEach((tip) => {
+  const btn = tip.querySelector(".tip-btn");
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const open = tip.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+});
+document.addEventListener("click", () => {
+  document.querySelectorAll(".tip.open").forEach((tip) => {
+    tip.classList.remove("open");
+    tip.querySelector(".tip-btn")?.setAttribute("aria-expanded", "false");
+  });
+});
+
 const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
 menuBtn.addEventListener("click", () => {
