@@ -113,12 +113,13 @@ h2 { font-size: var(--title); margin-top: 0.75rem; }
 .tip { position: relative; }
 .tip-btn {
   display: inline-flex; align-items: center; margin-top: 0.85rem;
-  height: auto; padding: 0.35rem 0.85rem; border-radius: 999px;
-  border: 1px solid var(--champagne); color: var(--champagne);
-  background: var(--surface); font-size: 0.85rem; line-height: 1.4;
-  cursor: help;
+  height: auto; padding: 0.7rem 1.15rem; border-radius: 0.65rem;
+  border: 0; color: #fffaf3;
+  background: #9a7040; font-size: 0.95rem; font-weight: 600; line-height: 1.3;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(154, 112, 64, 0.28);
 }
-.tip-btn:hover { background: #efe6d6; }
+.tip-btn:hover { background: #7d5a30; }
 .tip-panel {
   display: none;
   position: absolute; z-index: 30; top: calc(100% + 0.6rem); left: 50%;
