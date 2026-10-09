@@ -163,7 +163,7 @@ h2 { font-size: var(--title); margin-top: 0.75rem; }
 .partner {
   margin-top: 2.5rem;
   display: grid;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 1rem;
   background: var(--surface);
   box-shadow: var(--shadow);
